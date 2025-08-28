@@ -1,8 +1,9 @@
 FROM n8nio/n8n:1.74.0
 
 USER root
-RUN apt-get update \
- && apt-get install -y --no-install-recommends ffmpeg \
- && rm -rf /var/lib/apt/lists/*
+# Alpine usa apk (não apt)
+RUN apk add --no-cache ffmpeg
 
 USER node
+
+
